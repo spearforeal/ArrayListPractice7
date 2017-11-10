@@ -21,18 +21,24 @@ public class Main {
                     quit = true;
                     break;
                 case 1:
-                    printContacts();
+                    rolodex.printContacts();
                     break;
+                case 2:
+                    addNewContact();
+                    break;
+                case 3:
+                    updateContact();
+                    break;
+                case 4;
+                    removeContact();
+                    break; 
+
+
             }
 
         }
     }
 
-    private static void printContacts(){
-        rolodex.printContacts();
-
-
-    }
 
     private static void startPhone(){
         System.out.println("Starting a phone....");
