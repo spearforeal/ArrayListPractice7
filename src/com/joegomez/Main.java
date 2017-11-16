@@ -56,6 +56,54 @@ public class Main {
             System.out.println("Cannot add, " + name + " already on file");
         }
     }
+    private static void updateContact(){
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = rolodex.queryContact(name);
+        if(existingContactRecord == null){
+            System.out.println("Contact not found.");
+            return;
+        }
+
+        System.out.println("Enter new contact name: ");
+        String newName = scanner.nextLine();
+        System.out.println("Enter new contact phone number: ");
+        String newNumber = scanner.nextLine();
+        Contact newContact = Contact.createContact(newName, newNumber);
+        if(rolodex.updateContact(existingContactRecord, newContact)){
+            System.out.println("Successfully updated record");
+        }else{
+            System.out.println("Error updating recording. ");
+        }
+    }
+    private static void removeContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = rolodex.queryContact(name);
+        if (existingContactRecord == null) {
+            System.out.println("Contact not found.");
+            return;
+        }
+
+        if(rolodex.removeContact(existingContactRecord)){
+            System.out.println("Successfully deleted");
+        }else{
+            System.out.println("Error deleting contact");
+        }
+    }
+    private static void queryContact() {
+        System.out.println("Enter existing contact name: ");
+        String name = scanner.nextLine();
+        Contact existingContactRecord = rolodex.queryContact(name);
+        if (existingContactRecord == null) {
+            System.out.println("Contact not found.");
+            return;
+        }
+        System.out.println("Name: " + existingContactRecord.getName() + " phone number is: " + existingContactRecord.getPhoneNumber());
+
+    }
+
+
 
 
     private static void startPhone(){

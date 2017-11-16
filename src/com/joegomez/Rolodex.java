@@ -38,6 +38,7 @@ public class Rolodex {
         }
         this.myContacts.remove(foundPosition);
         System.out.println(contact.getName() +", was deleted.  ");
+        return true;
     }
 
     private int findContact(Contact contact){
@@ -60,6 +61,13 @@ public class Rolodex {
         }
         return null;
 
+    }
+    public Contact queryContact(String name){
+        int position = findContact(name);
+        if(position >=0){
+            return this.myContacts.get(position);
+        }
+        return null;
     }
     public void printContacts(){
         System.out.println("Contact List");
